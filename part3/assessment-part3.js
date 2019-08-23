@@ -13,7 +13,13 @@
 // return the result of your updateAnimal invocation
 
 // CODE HERE...
+function callBinding(magicAnimals, updateAnimal, id){
+    if (magicAnimals == id){
+        updateAnimal.call('Trogdor')
+    }
+    return updateAnimal();
 
+}
 
 
 // *************
@@ -29,7 +35,12 @@
 
 // CODE HERE...
 
-
+function applyBinding(magicAnimals, updateAnimal, id){
+    if (magicAnimals == id){
+        updateAnimal.apply(magicAnimals, ['being majestic', 'eating rainbows'])
+    }
+    return updateAnimal();
+}
 
 // *************
 // * PROBLEM 3 *
@@ -48,8 +59,9 @@
 var foo;
 
 // CODE HERE...
-
-
+function promiseMe(delay, $q) {
+    return new Promise(resolve => setTimeout(resolve, 20, $q));
+}
 
 // *************
 // * PROBLEM 4 *
@@ -64,3 +76,10 @@ var foo;
 // and then resolve the array as you complete your promise.
 
 // CODE HERE...
+function emailList($q, $http){
+    $http({
+        method: 'GET',
+        url: '/api/users'
+      }).then()
+      return new Promise(resolve => jasminePoints(resolve, $q))
+}
